@@ -1,2 +1,2 @@
 echo 'hello world!'
-cd nclouds-docker/backend/ && npm start
+cd nclouds-docker/frontend/ && npm start
