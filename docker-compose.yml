@@ -1,0 +1,21 @@
+version: '3'
+services:
+  server:
+    container_name: server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: chat
+    ports:
+      - 8081:8081
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      PORT: 8000
+      BIND: 0.0.0.0
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:latest
+    restart: always
