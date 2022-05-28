@@ -8,4 +8,4 @@ RUN git clone https://github.com/GEORGE-ACM1PT/nclouds-docker.git
 RUN cd nclouds-docker/backend/ && npm install 
 RUN cd nclouds-docker/frontend/ && npm install 
 RUN cd nclouds-docker/ && chmod +x run.sh
-CMD [ "./run.sh"]
+CMD "./nclouds-docker/run.sh"
