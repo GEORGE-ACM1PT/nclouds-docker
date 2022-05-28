@@ -12,6 +12,7 @@ services:
       MYSQL_HOST: mysql
     depends_on:
       - redis
+      - mysql
   redis:
     image: redis:latest
     restart: always
