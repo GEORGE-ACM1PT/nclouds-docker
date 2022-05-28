@@ -2,7 +2,7 @@ const dbConfig = require("../config/db.config");
 const Sequelize = require("sequelize");
 var sequelize ;
 var flag=true;
-
+const db = {};
 while(flag)
 {
  try {
@@ -12,15 +12,17 @@ while(flag)
     dialect: dbConfig.dialect,
     operatorsAliases: false,
   });
+  db.Sequelize = Sequelize;
+db.sequelize = sequelize;
+db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
   flag =false
+ 
  } catch (error) {
    
  }
 }
 
 
-const db = {};
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
-db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
+
+
 module.exports = db;

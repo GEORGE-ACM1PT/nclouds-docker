@@ -1,4 +1,4 @@
-version: '3'
+version: '3.9'
 services:
   server:
     container_name: server
@@ -12,8 +12,6 @@ services:
       MYSQL_HOST: mysql
     depends_on:
       - redis
-      - mysql
-
   redis:
     image: redis:latest
     restart: always
@@ -26,3 +24,7 @@ services:
       - MYSQL_DATABASE=nclouds
     ports:
       - 3306:3306
+    healthcheck:
+            test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+            timeout: 20s
+            retries: 10
