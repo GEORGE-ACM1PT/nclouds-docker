@@ -1,5 +1,5 @@
 module.exports = {
-    HOST: "172.17.0.2",
+    HOST: process.env.MYSQL_HOST,
     USER: "root",
     PASSWORD: "1234",
     DB: "nclouds",
