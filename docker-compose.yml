@@ -20,8 +20,10 @@ services:
       - 6379:6379
   mysql:
     image: mysql:latest
+    secrets: 
+      - my_secret2
     environment: 
-      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/my_secret2
       - MYSQL_DATABASE=nclouds
     ports:
       - 3306:3306
@@ -30,5 +32,5 @@ services:
             timeout: 20s
             retries: 10
 secrets:
-  my_secret:
+  my_secret2: 
     file: ./my_secret.txt
