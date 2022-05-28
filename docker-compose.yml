@@ -9,8 +9,6 @@ services:
       - 8080:8080
     environment:
       REDIS_HOST: redis
-      REDIS_PORT: 6379
-      BIND: 0.0.0.0
       MYSQL_HOST: mysql
     depends_on:
       - redis
@@ -19,8 +17,12 @@ services:
   redis:
     image: redis:latest
     restart: always
+    ports:
+      - 6379:6379
   mysql:
     image: mysql:latest
     environment: 
       - MYSQL_ROOT_PASSWORD=1234
-      - MYSQL_DATABASE= nclouds
+      - MYSQL_DATABASE=nclouds
+    ports:
+      - 3306:3306

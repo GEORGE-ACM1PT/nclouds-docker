@@ -3,7 +3,13 @@ const Tutorial = db.tutorials;
 const Op = db.Sequelize.Op;
 
 const { createClient } =require( 'redis');
-const client = createClient();
+const client = createClient(
+  {
+    socket: {
+      host:'redis'
+    }
+  }
+);
 
 client.on('error', (err) => console.log('Redis Client Error', err));
 
