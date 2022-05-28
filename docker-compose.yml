@@ -29,3 +29,6 @@ services:
             test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
             timeout: 20s
             retries: 10
+secrets:
+  my_secret:
+    file: ./my_secret.txt
